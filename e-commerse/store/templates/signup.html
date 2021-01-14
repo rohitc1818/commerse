@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+             <h3 class="alert alert-light border rounded">Create an Account</h3>
+
+              <form action="" method="POST">
+                    {% csrf_token %}
+
+                     <!-- This is for form validation purpose  -->
+                     {% if  error %}
+                     <div class="alert alert-danger" role="alert">
+                         {{error}}
+                     </div>
+                     {% endif %}
+
+                      <!--first Name-->
+                     <div class="form-group">
+                         <label>First Name</label>
+                         <input type="text"  value="{{values.First_name}}" name="firstname" class="form-control  form-control-sm">
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                         <label>Last Name</label>
+                         <input type="text" value="{{values.Last_name}}" name="lastname" class="form-control  form-control-sm">
+                    </div>
+
+                    <!-- contact no -->
+
+                    <div class="form-group">
+                         <label>Contact No</label>
+                         <input type="text" value="{{values.phone}}" name="phone" class="form-control  form-control-sm"  placeholder="8888888888">
+                    </div>
+
+                   <!--email-->
+                    <div class="form-group">
+                         <label>Email</label>
+                         <input type="email" value="{{values.email}}" name="email" class="form-control form-control-sm"  placeholder="example@gmail.com">
+                    </div>
+
+                    <!--pass-->
+                    <div class="form-group">
+                         <label>Password</label>
+                         <input type="password" name="password" class="form-control form-control-sm" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-info btn-sm" type="submit" value="create an account">
+                    </div>
+              </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
